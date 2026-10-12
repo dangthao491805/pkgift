@@ -49,7 +49,7 @@ window.PK_CATALOG = {
       "name": "Giftset bình giữ nhiệt & móc khóa",
       "category": "giftset",
       "categoryName": "Giftset doanh nghiệp",
-      "image": "assets/giftset.webp",
+      "image": "assets/giftset-hq.webp",
       "description": "Bình giữ nhiệt, móc khóa và bao bì đồng bộ cùng dấu ấn thương hiệu.",
       "tags": [
         "khách hàng",
@@ -66,7 +66,7 @@ window.PK_CATALOG = {
       "name": "Bộ sổ tay & bút doanh nghiệp",
       "category": "giftset",
       "categoryName": "Giftset doanh nghiệp",
-      "image": "assets/products/so-but.webp",
+      "image": "assets/products/so-but-640.webp",
       "description": "Phối sổ, bút và hộp quà theo màu sắc, mục đích và ngân sách.",
       "tags": [
         "văn phòng",
@@ -84,7 +84,7 @@ window.PK_CATALOG = {
       "name": "Giftset trà & phụ kiện",
       "category": "giftset",
       "categoryName": "Giftset doanh nghiệp",
-      "image": "assets/products/giftset-tra.webp",
+      "image": "assets/products/giftset-tra-640.webp",
       "description": "Một lựa chọn lịch sự cho đối tác, khách hàng và các dịp tri ân.",
       "tags": [
         "đối tác",
@@ -101,7 +101,7 @@ window.PK_CATALOG = {
       "name": "Giftset phong cách tự nhiên",
       "category": "giftset",
       "categoryName": "Giftset doanh nghiệp",
-      "image": "assets/products/giftset-eco.webp",
+      "image": "assets/products/giftset-eco-640.webp",
       "description": "Kết hợp quà tặng hữu dụng với bao bì mang sắc thái tự nhiên.",
       "tags": [
         "eco",
@@ -118,7 +118,7 @@ window.PK_CATALOG = {
       "name": "Bình giữ nhiệt in logo",
       "category": "binh-ly",
       "categoryName": "Bình & ly",
-      "image": "assets/thermos.webp",
+      "image": "assets/thermos-hq.webp",
       "description": "Đa dạng mẫu bình; tư vấn kiểu dáng và vị trí thể hiện thương hiệu.",
       "tags": [
         "bình nước",
@@ -135,7 +135,7 @@ window.PK_CATALOG = {
       "name": "Ly sứ cá nhân hóa",
       "category": "binh-ly",
       "categoryName": "Bình & ly",
-      "image": "assets/mugs.webp",
+      "image": "assets/mugs-hq.webp",
       "description": "Thể hiện logo, lời chúc hoặc họa tiết để tạo một món quà gần gũi.",
       "tags": [
         "ly",
@@ -153,7 +153,7 @@ window.PK_CATALOG = {
       "name": "Bình gốm trang trí",
       "category": "binh-ly",
       "categoryName": "Bình & ly",
-      "image": "assets/products/binh-gom.webp",
+      "image": "assets/products/binh-gom-640.webp",
       "description": "Quà tặng trang trí được lựa chọn theo phong cách của người nhận.",
       "tags": [
         "gốm",
@@ -170,7 +170,7 @@ window.PK_CATALOG = {
       "name": "Sổ tay doanh nghiệp",
       "category": "van-phong",
       "categoryName": "Sổ tay & bút",
-      "image": "assets/products/so-tay.webp",
+      "image": "assets/products/so-tay-640.webp",
       "description": "Lựa chọn mẫu sổ, màu bìa và phương án thể hiện logo phù hợp.",
       "tags": [
         "sổ",
@@ -187,7 +187,7 @@ window.PK_CATALOG = {
       "name": "Bút ký doanh nghiệp",
       "category": "van-phong",
       "categoryName": "Sổ tay & bút",
-      "image": "assets/products/but-ky.webp",
+      "image": "assets/products/but-ky-640.webp",
       "description": "Quà tặng văn phòng gọn gàng, có thể kết hợp cùng sổ và hộp.",
       "tags": [
         "bút",
@@ -204,7 +204,7 @@ window.PK_CATALOG = {
       "name": "Hộp bút quà tặng",
       "category": "van-phong",
       "categoryName": "Sổ tay & bút",
-      "image": "assets/products/hop-but.webp",
+      "image": "assets/products/hop-but-640.webp",
       "description": "Nâng cách trao tặng với bút và hộp quà được phối đồng bộ.",
       "tags": [
         "bút",
@@ -221,7 +221,7 @@ window.PK_CATALOG = {
       "name": "Túi canvas in thương hiệu",
       "category": "quang-cao",
       "categoryName": "Quà tặng quảng cáo",
-      "image": "assets/products/tui-canvas.webp",
+      "image": "assets/products/tui-canvas-640.webp",
       "description": "Một sản phẩm hữu dụng cho sự kiện, chiến dịch và hoạt động thường ngày.",
       "tags": [
         "túi vải",
@@ -238,7 +238,7 @@ window.PK_CATALOG = {
       "name": "Ô dù quảng cáo",
       "category": "quang-cao",
       "categoryName": "Quà tặng quảng cáo",
-      "image": "assets/products/du.webp",
+      "image": "assets/products/du-640.webp",
       "description": "Tư vấn kiểu dù, màu sắc và bố cục logo theo nhận diện doanh nghiệp.",
       "tags": [
         "ô",
@@ -255,7 +255,7 @@ window.PK_CATALOG = {
       "name": "Áo mưa doanh nghiệp",
       "category": "quang-cao",
       "categoryName": "Quà tặng quảng cáo",
-      "image": "assets/products/ao-mua.webp",
+      "image": "assets/products/ao-mua-640.webp",
       "description": "Quà tặng thực tế cho khách hàng, nhân viên và các chiến dịch quảng bá.",
       "tags": [
         "áo mưa",
@@ -271,7 +271,7 @@ window.PK_CATALOG = {
       "name": "Mũ bảo hiểm in thương hiệu",
       "category": "quang-cao",
       "categoryName": "Quà tặng quảng cáo",
-      "image": "assets/products/non.webp",
+      "image": "assets/products/non-640.webp",
       "description": "Lựa chọn mẫu mũ và cách thể hiện logo cho chương trình quà tặng.",
       "tags": [
         "mũ",
@@ -288,7 +288,7 @@ window.PK_CATALOG = {
       "name": "Balo quà tặng",
       "category": "quang-cao",
       "categoryName": "Quà tặng quảng cáo",
-      "image": "assets/products/balo.webp",
+      "image": "assets/products/balo-640.webp",
       "description": "Quà tặng có tính ứng dụng dành cho nhân sự, học viên và khách hàng.",
       "tags": [
         "túi",
@@ -305,7 +305,7 @@ window.PK_CATALOG = {
       "name": "Áo mưa bộ doanh nghiệp",
       "category": "quang-cao",
       "categoryName": "Quà tặng quảng cáo",
-      "image": "assets/products/ao-mua-bo.webp",
+      "image": "assets/products/ao-mua-bo-640.webp",
       "description": "Lựa chọn kiểu áo mưa và cách thể hiện thương hiệu theo chương trình.",
       "tags": [
         "áo mưa",
@@ -322,7 +322,7 @@ window.PK_CATALOG = {
       "name": "Cúp lưu niệm",
       "category": "su-kien",
       "categoryName": "Hội nghị & sự kiện",
-      "image": "assets/products/cup.webp",
+      "image": "assets/products/cup-640.webp",
       "description": "Tạo dấu ấn cho hoạt động vinh danh, hội nghị và kỷ niệm.",
       "tags": [
         "cúp",
@@ -339,7 +339,7 @@ window.PK_CATALOG = {
       "name": "Kỷ niệm chương",
       "category": "su-kien",
       "categoryName": "Hội nghị & sự kiện",
-      "image": "assets/products/ky-niem-chuong.webp",
+      "image": "assets/products/ky-niem-chuong-640.webp",
       "description": "Tư vấn mẫu biểu trưng và nội dung phù hợp với từng dịp trao tặng.",
       "tags": [
         "pha lê",
@@ -356,7 +356,7 @@ window.PK_CATALOG = {
       "name": "Huy chương & biểu trưng",
       "category": "su-kien",
       "categoryName": "Hội nghị & sự kiện",
-      "image": "assets/products/huy-chuong.webp",
+      "image": "assets/products/huy-chuong-640.webp",
       "description": "Các lựa chọn kỷ niệm dành cho sự kiện, giải đấu và hoạt động nội bộ.",
       "tags": [
         "huy chương",
@@ -372,7 +372,7 @@ window.PK_CATALOG = {
       "name": "Quà Tết doanh nghiệp",
       "category": "mua-vu",
       "categoryName": "Quà tặng theo mùa",
-      "image": "assets/tet.webp",
+      "image": "assets/tet-hq.webp",
       "description": "Phối sản phẩm, hộp và lời chúc theo ngân sách và đối tượng nhận.",
       "tags": [
         "tết",
@@ -389,7 +389,7 @@ window.PK_CATALOG = {
       "name": "Quà Trung thu",
       "category": "mua-vu",
       "categoryName": "Quà tặng theo mùa",
-      "image": "assets/products/trung-thu.webp",
+      "image": "assets/products/trung-thu-640.webp",
       "description": "Lựa chọn bộ quà và bao bì cho chương trình tri ân Trung thu.",
       "tags": [
         "bánh",
@@ -406,7 +406,7 @@ window.PK_CATALOG = {
       "name": "Chuột không dây quà tặng",
       "category": "cong-nghe",
       "categoryName": "Công nghệ & phụ kiện",
-      "image": "assets/products/chuot.webp",
+      "image": "assets/products/chuot-640.webp",
       "description": "Phụ kiện văn phòng dễ sử dụng, có thể phối thành bộ quà công nghệ.",
       "tags": [
         "chuột",
@@ -423,7 +423,7 @@ window.PK_CATALOG = {
       "name": "USB quà tặng",
       "category": "cong-nghe",
       "categoryName": "Công nghệ & phụ kiện",
-      "image": "assets/products/usb.webp",
+      "image": "assets/products/usb-640.webp",
       "description": "Tư vấn kiểu dáng và thông số theo nhu cầu sử dụng, ngân sách và thương hiệu.",
       "tags": [
         "usb",
@@ -440,7 +440,7 @@ window.PK_CATALOG = {
       "name": "Loa quà tặng",
       "category": "cong-nghe",
       "categoryName": "Công nghệ & phụ kiện",
-      "image": "assets/products/loa.webp",
+      "image": "assets/products/loa-640.webp",
       "description": "Một gợi ý phụ kiện hiện đại cho khách hàng và nhân sự.",
       "tags": [
         "loa",
@@ -457,7 +457,7 @@ window.PK_CATALOG = {
       "name": "Gối cổ tiện ích",
       "category": "tien-ich",
       "categoryName": "Chăm sóc cá nhân",
-      "image": "assets/products/goi-co.webp",
+      "image": "assets/products/goi-co-640.webp",
       "description": "Phù hợp với các chương trình quà tặng du lịch và chăm sóc nhân viên.",
       "tags": [
         "gối",
@@ -474,7 +474,7 @@ window.PK_CATALOG = {
       "name": "Khăn quà tặng",
       "category": "tien-ich",
       "categoryName": "Chăm sóc cá nhân",
-      "image": "assets/products/khan.webp",
+      "image": "assets/products/khan-640.webp",
       "description": "Phối khăn, cách thể hiện thương hiệu và bao bì theo từng nhu cầu.",
       "tags": [
         "khăn",
@@ -491,7 +491,7 @@ window.PK_CATALOG = {
       "name": "Ly phong cách tự nhiên",
       "category": "eco",
       "categoryName": "Quà tặng thân thiện",
-      "image": "assets/products/ly-tre.webp",
+      "image": "assets/products/ly-tre-640.webp",
       "description": "Tư vấn chất liệu và kiểu dáng phù hợp cho bộ quà mang sắc thái tự nhiên.",
       "tags": [
         "tre",
@@ -508,7 +508,7 @@ window.PK_CATALOG = {
       "name": "Bút gỗ quà tặng",
       "category": "eco",
       "categoryName": "Quà tặng thân thiện",
-      "image": "assets/products/but-go.webp",
+      "image": "assets/products/but-go-640.webp",
       "description": "Một lựa chọn mộc mạc, có thể kết hợp sổ và bao bì cùng phong cách.",
       "tags": [
         "bút",
@@ -525,7 +525,7 @@ window.PK_CATALOG = {
       "name": "Túi phong cách tự nhiên",
       "category": "eco",
       "categoryName": "Quà tặng thân thiện",
-      "image": "assets/products/tui-day.webp",
+      "image": "assets/products/tui-day-640.webp",
       "description": "Túi quà cùng gam màu trung tính; chọn chất liệu theo yêu cầu.",
       "tags": [
         "túi",
@@ -542,7 +542,7 @@ window.PK_CATALOG = {
       "name": "Bộ ấm chén quà tặng",
       "category": "gia-dung",
       "categoryName": "Gia dụng chính hãng",
-      "image": "assets/products/bo-am-chen.webp",
+      "image": "assets/products/bo-am-chen-640.webp",
       "description": "Bộ ấm chén cho những dịp trao tặng; tư vấn mẫu và cách phối bao bì.",
       "tags": [
         "ấm",
@@ -560,7 +560,7 @@ window.PK_CATALOG = {
       "name": "Set gia dụng làm quà",
       "category": "gia-dung",
       "categoryName": "Gia dụng chính hãng",
-      "image": "assets/products/set-but-binh.webp",
+      "image": "assets/products/set-but-binh-640.webp",
       "description": "Kết hợp sản phẩm hữu dụng và bao bì dành cho chương trình doanh nghiệp.",
       "tags": [
         "gia dụng",
@@ -577,7 +577,7 @@ window.PK_CATALOG = {
       "name": "Set phụ kiện văn phòng",
       "category": "giftset",
       "categoryName": "Giftset doanh nghiệp",
-      "image": "assets/products/set-cong-nghe.webp",
+      "image": "assets/products/set-cong-nghe-640.webp",
       "description": "Kết hợp phụ kiện và bao bì thành bộ quà đồng bộ với thương hiệu.",
       "tags": [
         "công nghệ",

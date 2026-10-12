@@ -43,11 +43,11 @@ Khi đổi thông tin công ty, cập nhật cả phần nội dung HTML, metada
 
 ## Form tư vấn hoạt động như thế nào?
 
-Cấu hình hiện tại **soạn email** gửi tới `pkgift.sales@gmail.com`; khách hàng phải bấm **Gửi** trong ứng dụng email. Website chỉ lưu mã sản phẩm và số lượng trong trình duyệt để giữ danh sách báo giá. Website không có máy chủ nhận form, không tự gửi email và không có trang quản trị đơn hàng.
+Form gửi trực tiếp bằng AJAX qua **FormSubmit** đến `pkgift.sales@gmail.com`. Người dùng bấm **Gửi đi**, thấy trạng thái đang gửi, thành công hoặc lỗi ngay trên trang. Danh sách sản phẩm, số lượng và thông tin liên hệ được đưa vào nội dung email. Khi lỗi, form giữ dữ liệu và cung cấp hotline, sao chép/tải nội dung hoặc email dự phòng.
 
-Nếu máy của khách chưa cấu hình ứng dụng email, form vẫn cho phép sao chép hoặc tải nội dung yêu cầu để gửi thủ công, hoặc liên hệ bằng Zalo/hotline.
+**Thiết lập lần đầu:** gửi một yêu cầu kiểm tra từ website, mở `pkgift.sales@gmail.com` (kể cả thư rác) và xác nhận email kích hoạt FormSubmit. Gửi lại một yêu cầu kiểm tra để xác nhận email đến hộp thư. Các trang dùng chung `_url` trong `assets/config.js`. Khi đổi địa chỉ email hoặc URL nhận form, cần xác nhận lại.
 
-Muốn tự động nhận form, kết nối một dịch vụ nhận form đã cấu hình rồi đặt URL HTTPS của dịch vụ vào `formEndpoint` trong `assets/config.js`. Khi làm bước đó cần đồng thời cập nhật mô tả form và trang bảo mật cho phù hợp. Không đặt API key hay mật khẩu vào mã JavaScript công khai. GitHub Pages chỉ phục vụ các tệp tĩnh; phần xử lý máy chủ cần một dịch vụ riêng.
+`formEndpoint` là địa chỉ AJAX công khai, không chứa mật khẩu/API key. Chỉ hiển thị thành công khi dịch vụ trả xác nhận JSON; thông báo kích hoạt hoặc lỗi không được coi là đã gửi. Website không có cơ sở dữ liệu khách hàng/trang quản trị đơn hàng. FormSubmit có thể giữ bản gửi tối đa 30 ngày. Đã cập nhật trang bảo mật.
 
 ## Đặt URL chính thức cho SEO
 
@@ -61,7 +61,7 @@ Công cụ cập nhật canonical, URL chia sẻ, schema, robots và sitemap. Sa
 
 ## Kiểm tra trước khi dùng chính thức
 
-Mã JavaScript, liên kết tệp, nhãn form, ảnh, nội dung định vị và các hàm tìm kiếm/báo giá đã được kiểm tra. Chưa kiểm tra giao diện trực tiếp bằng trình duyệt trong môi trường tạo website. Sau khi đưa lên GitHub, mở thử trên điện thoại và máy tính; thử tìm sản phẩm, đổi số lượng, mở video và soạn email bằng tài khoản của bạn.
+Mã JavaScript, liên kết tệp, nhãn form, ảnh, nội dung định vị và các hàm tìm kiếm/báo giá đã được kiểm tra. Chưa kiểm tra giao diện trực tiếp bằng trình duyệt trong môi trường tạo website. Sau khi đưa lên GitHub, mở thử trên điện thoại và máy tính; thử tìm sản phẩm, đổi số lượng, mở video và gửi form kiểm tra sau khi đã xác nhận email FormSubmit.
 
 Giá và thông số cụ thể không được giả định. Hình sản phẩm là mẫu tham khảo từ tài liệu công ty; mẫu thực tế, giá, in ấn, bảo hành và tiến độ cần xác nhận theo từng đơn hàng. Catalog tải về là tệp PowerPoint gốc được cung cấp, không phải một catalog đã biên tập lại.
 

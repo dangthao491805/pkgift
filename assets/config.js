@@ -8,8 +8,9 @@ window.PK_CONFIG = {
   email: 'pkgift.sales@gmail.com',
   address: '252 Tô Hiệu, Đà Nẵng',
   zalo: 'https://zalo.me/0938613943',
-  siteUrl: '',
-  /* Để trống: soạn email trong ứng dụng email của khách, khách tự bấm gửi.
-     Chỉ điền URL HTTPS của dịch vụ nhận form khi đã cấu hình dịch vụ đó. */
-  formEndpoint: ''
+  siteUrl: 'https://pkgift.nguyendminhtam02.workers.dev',
+  /* Xác nhận email FormSubmit một lần trước khi nhận yêu cầu của khách.
+     URL nhận form cố định giúp các trang dùng chung một cấu hình gửi. */
+  formUrl: 'https://pkgift.nguyendminhtam02.workers.dev/lien-he.html',
+  formEndpoint: 'https://formsubmit.co/ajax/pkgift.sales@gmail.com'
 };

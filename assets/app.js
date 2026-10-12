@@ -162,32 +162,34 @@
   $$('[data-inquiry-form]').forEach(form=>{
     const date=form.elements.delivery;if(date){const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000);date.min=local.toISOString().slice(0,10);}
     form.addEventListener('submit',async event=>{
-      event.preventDefault();if(!form.reportValidity())return;
+      event.preventDefault();if(form.dataset.submitting==='true'||!form.reportValidity())return;
       const fd=new FormData(form);const data=Object.fromEntries(fd.entries());data.consent=form.elements.consent.checked;
       const status=$('.form-status',form);status.replaceChildren();
-      if(data.website){status.textContent='Vui lòng liên hệ trực tiếp qua hotline.';return;}
+      if(data.website||data._honey){status.textContent='Vui lòng liên hệ trực tiếp qua hotline.';return;}
       const error=U.validateInquiry(data);if(error){status.textContent=error;return;}
       const body=U.composeInquiry(data,cart,products);const subject='Yêu cầu tư vấn quà tặng'+(data.company?' — '+data.company:'');
-      const endpoint=C.formEndpoint;
-      if(endpoint){
-        const button=$('[type="submit"]',form);button.disabled=true;status.textContent='Đang gửi yêu cầu…';
-        try {
-          if(!/^https:\/\//i.test(endpoint))throw new Error('Endpoint phải dùng HTTPS.');
-          const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),15000);
-          let response;
-          try{response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({...data,website:undefined,products:cart,message:body}),signal:controller.signal});}
-          finally{clearTimeout(timeout);}
-          if(!response.ok)throw new Error('Không nhận được xác nhận gửi.');
-          status.textContent='Yêu cầu đã được dịch vụ tiếp nhận. Phúc Khang Thịnh Phát sẽ liên hệ theo thông tin bạn cung cấp.';
-          form.reset();return;
-        } catch {status.textContent='Chưa gửi được yêu cầu. Bạn có thể gửi qua email bên dưới hoặc gọi hotline. ';}
-        finally{button.disabled=false;}
-      } else {status.textContent='Email yêu cầu đã được soạn. Hãy bấm Gửi trong ứng dụng email để hoàn tất. Nếu ứng dụng email chưa mở, dùng các lựa chọn bên dưới. ';}
+      const button=$('[type="submit"]',form);const label=button.innerHTML;
+      form.dataset.submitting='true';form.setAttribute('aria-busy','true');
+      button.disabled=true;button.textContent='Đang gửi…';status.dataset.state='sending';
+      status.textContent='Đang gửi yêu cầu tư vấn. Vui lòng chờ trong giây lát.';
+      try {
+        const fields=window.PK_INQUIRY.payload(data,body,subject,C.formUrl,location.href.split('#')[0]);
+        await window.PK_INQUIRY.send(C.formEndpoint,fields);
+        status.dataset.state='success';
+        status.textContent='Đã gửi yêu cầu thành công. Cảm ơn bạn đã lựa chọn Phúc Khang Thịnh Phát. Đội ngũ tư vấn sẽ liên hệ theo thông tin bạn cung cấp.';
+        form.reset();syncInquiryItems();return;
+      } catch {
+        status.dataset.state='error';
+        status.textContent='Chưa nhận được xác nhận gửi. Thông tin bạn nhập vẫn được giữ lại để thử lại. Bạn cũng có thể gọi hotline hoặc gửi qua email bên dưới. ';
+        const phone=document.createElement('a');phone.href='tel:'+C.phone.replace(/\D/g,'');phone.textContent='Gọi '+C.phone;phone.className='text-link';status.append(phone,document.createElement('br'));
+      } finally {
+        button.disabled=false;button.innerHTML=label;delete form.dataset.submitting;
+        form.removeAttribute('aria-busy');
+      }
       const emailLink=document.createElement('a');emailLink.href=U.mailto(C.email,subject,body);emailLink.textContent='Mở email';emailLink.className='text-link';
       const download=document.createElement('button');download.type='button';download.className='btn small';download.style.margin='12px 10px 0';download.textContent='Tải nội dung yêu cầu';download.addEventListener('click',()=>downloadText(body,'Yeu_cau_qua_tang_PKTP.txt'));
       const copy=document.createElement('button');copy.type='button';copy.className='btn small';copy.textContent='Sao chép';copy.addEventListener('click',async()=>toast(await copyText(body)?'Đã sao chép nội dung yêu cầu.':'Vui lòng tải nội dung yêu cầu.'));
       status.append(document.createElement('br'),emailLink,download,copy);
-      if(!endpoint){const link=document.createElement('a');link.href=emailLink.href;document.body.append(link);link.click();link.remove();}
     });
   });
   $$('[data-budget-tool]').forEach(tool=>{
@@ -202,6 +204,14 @@
   $$('[data-address]').forEach(el=>el.textContent=C.address);
   $$('[data-company]').forEach(el=>el.textContent=C.company);
   $$('[data-map]').forEach(el=>el.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(C.address));
+  $$('[data-brand-motion]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const section=button.closest('[data-brand-marquee]');
+      const paused=section.dataset.paused!=='true';section.dataset.paused=String(paused);
+      button.setAttribute('aria-pressed',String(paused));
+      $('[data-motion-label]',button).textContent=paused?'Tiếp tục chuyển động':'Tạm dừng chuyển động';
+    });
+  });
   const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');let frame=0;
   function updateScroll(){
     frame=0;const y=window.scrollY;const top=$('.backtop');if(top)top.classList.toggle('visible',y>500);
