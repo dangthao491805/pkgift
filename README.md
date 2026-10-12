@@ -66,3 +66,9 @@ Mã JavaScript, liên kết tệp, nhãn form, ảnh, nội dung định vị v�
 Giá và thông số cụ thể không được giả định. Hình sản phẩm là mẫu tham khảo từ tài liệu công ty; mẫu thực tế, giá, in ấn, bảo hành và tiến độ cần xác nhận theo từng đơn hàng. Catalog tải về là tệp PowerPoint gốc được cung cấp, không phải một catalog đã biên tập lại.
 
 Font Inter và Playfair Display được lưu cùng website, có bộ ký tự tiếng Việt. Giấy phép nằm trong `assets/fonts/Inter-OFL.txt` và `assets/fonts/Playfair-Display-OFL.txt`. Nền kính có các lớp, vệt ánh sáng và chuyển động chậm; hiệu ứng giảm trên điện thoại, dừng khi tab ẩn và theo tùy chọn giảm chuyển động của người xem. Phần cập nhật hình thức nằm trong `assets/fonts.css` và `assets/visual.css`.
+
+## Triển khai Cloudflare Workers
+
+Worker hiện tại là `pkgift`. `wrangler.jsonc` chỉ định bộ tệp website tĩnh tại thư mục gốc; `.assetsignore` loại các tệp phát triển khỏi bản Cloudflare. Cấu hình không chứa account_id, API token hoặc mật khẩu.
+
+Trong Cloudflare → Worker `pkgift` → Settings → Build Configuration: dùng nhánh `main`, thư mục gốc của repo và lệnh deploy `npx wrangler deploy`. Website không cần bước build nội dung. Giữ các cấu hình tích hợp Git/tài khoản hiện có. Nếu một lần triển khai báo lỗi, xem phần log của lần build để xác định lỗi cấu hình, token hoặc tải tệp; GitHub Pages vẫn là bản xem dự phòng.

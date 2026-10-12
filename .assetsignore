@@ -1,0 +1,11 @@
+/node_modules/
+/.git/
+/.github/
+/tests/
+/tools/
+/README.md
+/assets/IMAGE_ASSETS.md
+/wrangler.jsonc
+/.gitignore
+/.nojekyll
+/.assetsignore
