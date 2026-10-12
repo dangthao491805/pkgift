@@ -1,0 +1,228 @@
+/* PK Gift — Inter / Playfair Display and layered black–gold ambience. */
+:root {
+  --bg: #080a09;
+  --surface: #161813;
+  --ink: #f4f0e7;
+  --muted: #bdb8aa;
+  --gold: #e0b969;
+  --gold-soft: #f0d6a0;
+  --line: rgba(226, 192, 126, .19);
+  --ambient-scroll: 0px;
+}
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: -.012em;
+  background: var(--bg);
+}
+h1, h2, h3, h4, .accent, .big-quote, .quote-box,
+.workflow-step > span, .not-found .code {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-optical-sizing: auto;
+}
+h1, h2 { font-weight: 600; color: #eed3a0; letter-spacing: -.025em; }
+h3, h4 { font-weight: 600; letter-spacing: -.015em; }
+.hero h1 { color: #eac77e; line-height: 1.18; letter-spacing: -.027em; }
+.hero h1 .accent { color: #f3d9a5; font-weight: 500; letter-spacing: -.025em; }
+.page-hero h1 { line-height: 1.24; letter-spacing: -.02em; }
+.product-body h3 { font-family: 'Playfair Display', Georgia, serif; color: #ebd2a3; font-weight: 600; }
+.product-body small, .eyebrow, .tag, .btn, .nav, .form-field,
+.detail-specs, .brand-copy, .brand-names, .footer-bottom {
+  font-family: 'Inter', Arial, sans-serif;
+}
+.product-body p, .detail-description, .form-description { letter-spacing: 0; }
+.hero-description { color: #c5c0b4; }
+.eyebrow { color: #d7b16b; }
+.header {
+  background: rgba(7, 10, 8, .86);
+  border-bottom-color: rgba(221, 185, 111, .21);
+  box-shadow: 0 6px 38px rgba(0, 0, 0, .2);
+}
+.topbar { background: rgba(18, 16, 10, .52); border-bottom-color: rgba(221, 185, 111, .14); }
+.glass {
+  background: linear-gradient(133deg, rgba(53, 44, 29, .62), rgba(18, 21, 17, .8) 65%);
+  border-color: rgba(226, 192, 126, .22);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 239, 198, .06);
+}
+.hero-product { background: linear-gradient(145deg, rgba(94, 72, 36, .58), rgba(22, 25, 18, .9)); }
+.hero-product-caption h3, .category-title h3 { color: #f0d8aa; }
+.hero-product-caption p { color: #bfb39b; }
+.mini-card { border-color: rgba(226, 192, 126, .25); }
+.mini-card .icon-wrap { background: rgba(230, 187, 95, .06); }
+.product-card {
+  background: linear-gradient(148deg, rgba(54, 43, 26, .58), rgba(19, 22, 17, .91));
+  border-color: rgba(226, 192, 126, .21);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .18), inset 0 1px 0 rgba(255, 234, 181, .035);
+}
+.category-card:hover, .product-card:hover {
+  border-color: rgba(231, 190, 110, .58);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .25), 0 0 24px rgba(211, 163, 72, .07);
+}
+.section-tint {
+  background: linear-gradient(115deg, rgba(24, 21, 13, .38), rgba(8, 11, 8, .6));
+  border-top-color: rgba(223, 185, 111, .16);
+  border-bottom-color: rgba(223, 185, 111, .16);
+}
+.section-border { border-color: rgba(223, 185, 111, .15); }
+.solution-card.light {
+  background: linear-gradient(130deg, rgba(116, 83, 35, .26), rgba(20, 24, 18, .87));
+  color: var(--ink);
+  border-color: rgba(233, 194, 120, .3);
+}
+.solution-card.light h3 { color: #f1d5a0; }
+.solution-card.light .eyebrow, .solution-card.light .text-link { color: #e6c07c; }
+.solution-card.light .eyebrow:before { background: #d5ae61; }
+.solution-card.light p { color: #c1b8a5; }
+.cta-panel {
+  background: linear-gradient(115deg, rgba(141, 97, 34, .26), rgba(37, 38, 25, .83) 64%, rgba(18, 22, 17, .91));
+  border-color: rgba(226, 192, 126, .31);
+  box-shadow: 0 24px 62px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 233, 189, .09);
+}
+.footer { background: rgba(5, 8, 5, .8); border-color: rgba(221, 185, 111, .17); }
+.footer h3 { font-family: 'Inter', Arial, sans-serif; color: #ead6ae; }
+.article-card { background: rgba(25, 28, 20, .78); border-color: rgba(226, 192, 126, .17); }
+.article-content h3 { color: #e9d3a8; }
+.contact-item a, .contact-item strong { font-variant-numeric: tabular-nums; }
+.detail-specs, .budget-result strong, .quote-qty input { font-variant-numeric: tabular-nums; }
+.brand-names span:nth-child(2) { font-family: Georgia, serif; }
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+  background: radial-gradient(ellipse at 97% 13%, rgba(92, 61, 22, .28), transparent 48%),
+              radial-gradient(ellipse at 1% 73%, rgba(83, 62, 28, .14), transparent 49%),
+              linear-gradient(142deg, #050806, #13130d 48%, #060906);
+}
+.ambient:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: .16;
+  background: repeating-linear-gradient(128deg, transparent 0 114px, rgba(220, 190, 125, .25) 114px 115px, transparent 115px 228px);
+  -webkit-mask-image: radial-gradient(ellipse at 80% 45%, #000, transparent 80%);
+  mask-image: radial-gradient(ellipse at 80% 45%, #000, transparent 80%);
+}
+.ambient-stage { position: absolute; inset: -100px 0; transform: translate3d(0, var(--ambient-scroll), 0); }
+.ambient-stage--far { transform: translate3d(0, calc(var(--ambient-scroll) * .45), 0); }
+.ambient .ambient-glow {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(82px);
+  will-change: transform;
+  background: radial-gradient(circle, rgba(194, 135, 47, .78), rgba(140, 96, 32, .3) 60%, transparent 78%);
+  opacity: .42;
+}
+.ambient .ambient-glow.glow-one {
+  width: 710px; height: 710px; top: -13%; right: -230px;
+  animation: glow-drift-one 27s ease-in-out infinite alternate;
+}
+.ambient .ambient-glow.glow-two {
+  width: 650px; height: 650px; top: 38%; left: -420px;
+  opacity: .32;
+  background: radial-gradient(circle, rgba(190, 148, 71, .78), rgba(120, 89, 35, .25) 60%, transparent 80%);
+  animation: glow-drift-two 33s ease-in-out infinite alternate;
+}
+.ambient .ambient-glow.glow-three {
+  width: 530px; height: 530px; right: 22%; bottom: -310px;
+  opacity: .23;
+  animation: glow-drift-one 38s ease-in-out infinite alternate-reverse;
+}
+.glass-slab {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(222, 184, 110, .24);
+  border-radius: 36px;
+  background: linear-gradient(134deg, rgba(217, 177, 102, .08), rgba(166, 126, 64, .015) 43%, rgba(36, 35, 26, .04));
+  box-shadow: 0 35px 75px rgba(0, 0, 0, .19), inset 1px 1px 0 rgba(255, 225, 169, .07);
+  transform: rotate(var(--slab-angle));
+  animation: slab-drift 31s ease-in-out infinite alternate;
+}
+.glass-slab:after {
+  content: '';
+  position: absolute;
+  inset: 13px;
+  border-radius: inherit;
+  border-top: 1px solid rgba(243, 215, 155, .12);
+  border-left: 1px solid rgba(243, 215, 155, .08);
+}
+.slab-one { --slab-angle: -18deg; width: 470px; height: 610px; right: -210px; top: 13%; }
+.slab-two { --slab-angle: -18deg; width: 470px; height: 610px; right: -265px; top: 17%; opacity: .54; animation-delay: -8s; }
+.slab-three { --slab-angle: 19deg; width: 590px; height: 395px; left: -360px; top: 50%; opacity: .64; animation-delay: -13s; }
+.slab-four { --slab-angle: 18deg; width: 405px; height: 330px; right: 10%; bottom: -205px; opacity: .39; animation-duration: 39s; animation-delay: -18s; }
+.ambient-orbit {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(222, 184, 110, .075);
+  border-top-color: rgba(242, 203, 128, .23);
+  border-right-color: rgba(224, 182, 101, .13);
+  animation: orbit-drift 100s linear infinite;
+}
+.orbit-one { width: 1050px; height: 1050px; right: -570px; top: -290px; }
+.orbit-two { width: 850px; height: 850px; left: -655px; bottom: -380px; opacity: .57; animation-direction: reverse; animation-duration: 120s; }
+.light-thread {
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 360px;
+  background: linear-gradient(90deg, transparent, rgba(248, 211, 140, .24), transparent);
+  transform: rotate(-34deg);
+  opacity: .48;
+  animation: thread-drift 28s ease-in-out infinite alternate;
+}
+.thread-one { right: -90px; top: 29%; }
+.thread-two { left: -130px; bottom: 22%; animation-delay: -14s; opacity: .24; }
+html[data-ambient-paused="true"] .ambient * { animation-play-state: paused; }
+@keyframes glow-drift-one {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-50px, 36px, 0) scale(1.06); }
+}
+@keyframes glow-drift-two {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(60px, -30px, 0); }
+}
+@keyframes slab-drift {
+  from { transform: translate3d(0, 0, 0) rotate(var(--slab-angle)); }
+  to { transform: translate3d(0, -24px, 0) rotate(var(--slab-angle)); }
+}
+@keyframes orbit-drift { to { transform: rotate(360deg); } }
+@keyframes thread-drift {
+  from { transform: translate3d(0, 0, 0) rotate(-34deg); }
+  to { transform: translate3d(35px, -14px, 0) rotate(-34deg); }
+}
+@media (max-width: 960px) {
+  .hero h1 { font-size: 44px; }
+  .ambient .ambient-glow.glow-one { right: -330px; opacity: .36; }
+  .slab-one { right: -305px; }
+  .slab-two { right: -345px; }
+  .slab-three { left: -410px; }
+}
+@media (max-width: 700px) {
+  body { letter-spacing: -.006em; }
+  .hero h1 { font-size: clamp(36px, 8.3vw, 48px); letter-spacing: -.025em; }
+  .hero h1 .accent { line-height: 1.31; }
+  .section-heading h2, .body-copy h2 { line-height: 1.3; }
+  .ambient:before { opacity: .1; }
+  .ambient .ambient-glow { filter: blur(68px); }
+  .ambient .ambient-glow.glow-one { width: 540px; height: 540px; right: -360px; top: -3%; opacity: .4; }
+  .ambient .ambient-glow.glow-two { width: 480px; height: 480px; left: -360px; top: 65%; opacity: .26; }
+  .ambient .glow-three, .slab-two, .slab-four, .orbit-two, .light-thread { display: none; }
+  .slab-one { width: 350px; height: 460px; right: -280px; top: 20%; opacity: .63; border-radius: 26px; animation-duration: 40s; }
+  .slab-three { width: 360px; height: 310px; left: -305px; top: 63%; opacity: .35; animation: none; }
+  .orbit-one { width: 790px; height: 790px; right: -625px; top: -140px; opacity: .5; }
+}
+@media (max-width: 380px) { .hero h1 { font-size: 35px; } }
+@media (prefers-reduced-motion: reduce) {
+  .ambient *, .ambient *:before, .ambient *:after { animation: none !important; will-change: auto; }
+  .ambient-stage { transform: none !important; }
+}
+@media print {
+  h1, h2, h3, .accent, .product-body h3 { color: #151515; }
+  .glass, .product-card, .solution-card.light { background: #fff; color: #111; box-shadow: none; }
+  .ambient { display: none; }
+}

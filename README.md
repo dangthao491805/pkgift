@@ -1,6 +1,6 @@
 # Website Phúc Khang Thịnh Phát
 
-Website HTML/CSS/JavaScript thuần, tông đen – vàng kim. Toàn bộ website chạy trực tiếp trên GitHub Pages, không cần Node.js, npm hay bước build.
+Website HTML/CSS/JavaScript thuần, tông đen – vàng kim. Tiêu đề dùng Playfair Display, nội dung và giao diện dùng Inter. Toàn bộ website chạy trực tiếp trên GitHub Pages, không cần Node.js, npm hay bước build.
 
 ## Có trong bộ mã nguồn
 
@@ -65,4 +65,4 @@ Mã JavaScript, liên kết tệp, nhãn form, ảnh, nội dung định vị v�
 
 Giá và thông số cụ thể không được giả định. Hình sản phẩm là mẫu tham khảo từ tài liệu công ty; mẫu thực tế, giá, in ấn, bảo hành và tiến độ cần xác nhận theo từng đơn hàng. Catalog tải về là tệp PowerPoint gốc được cung cấp, không phải một catalog đã biên tập lại.
 
-Font được lưu cùng website, không cần tải từ Google Fonts. Bản quyền và giấy phép font nằm trong `assets/FONT_LICENSE.txt`.
+Font Inter và Playfair Display được lưu cùng website, có bộ ký tự tiếng Việt. Giấy phép nằm trong `assets/fonts/Inter-OFL.txt` và `assets/fonts/Playfair-Display-OFL.txt`. Nền kính có các lớp, vệt ánh sáng và chuyển động chậm; hiệu ứng giảm trên điện thoại, dừng khi tab ẩn và theo tùy chọn giảm chuyển động của người xem. Phần cập nhật hình thức nằm trong `assets/fonts.css` và `assets/visual.css`.

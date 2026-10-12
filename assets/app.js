@@ -205,9 +205,15 @@
   const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');let frame=0;
   function updateScroll(){
     frame=0;const y=window.scrollY;const top=$('.backtop');if(top)top.classList.toggle('visible',y>500);
-    $$('.ambient i').forEach((el,i)=>el.style.transform=reducedMotion.matches?'none':`translateY(${Math.max(-80,Math.min(y*(i%2===0 ? .035 : -.025),80))}px)`);
+    document.documentElement.style.setProperty('--ambient-scroll', reducedMotion.matches ? '0px' : `${Math.min(y * .035, 75)}px`);
   }
   window.addEventListener('scroll',()=>{if(!frame)frame=requestAnimationFrame(updateScroll);},{passive:true});
-  reducedMotion.addEventListener?.('change',updateScroll);updateScroll();
+  function syncAmbientMotion(){
+    document.documentElement.dataset.ambientPaused=String(document.hidden || reducedMotion.matches);
+    updateScroll();
+  }
+  document.addEventListener('visibilitychange',syncAmbientMotion);
+  window.addEventListener('pageshow',syncAmbientMotion);
+  reducedMotion.addEventListener?.('change',syncAmbientMotion);syncAmbientMotion();
   updateCartCount();syncInquiryItems();
 })();
