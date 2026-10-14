@@ -72,3 +72,11 @@ Font Inter và Playfair Display được lưu cùng website, có bộ ký tự t
 Worker hiện tại là `pkgift`. `wrangler.jsonc` chỉ định bộ tệp website tĩnh tại thư mục gốc; `.assetsignore` loại các tệp phát triển khỏi bản Cloudflare. Cấu hình không chứa account_id, API token hoặc mật khẩu.
 
 Trong Cloudflare → Worker `pkgift` → Settings → Build Configuration: dùng nhánh `main`, thư mục gốc của repo và lệnh deploy `npx wrangler deploy`. Website không cần bước build nội dung. Giữ các cấu hình tích hợp Git/tài khoản hiện có. Nếu một lần triển khai báo lỗi, xem phần log của lần build để xác định lỗi cấu hình, token hoặc tải tệp; GitHub Pages vẫn là bản xem dự phòng.
+
+## Catalog và bổ sung mẫu sản phẩm
+
+Trang chủ có tìm kiếm và đường vào các dòng quà. Danh mục lọc theo nhóm/dòng, tìm nhiều từ không dấu và phân trang 18 mục. Bộ lọc dùng các tham số `nhom`, `loai`, `q`, `sap-xep`, `trang`, nên có thể chia sẻ đường dẫn tới một lựa chọn. Phiên bản script được cập nhật đồng bộ trên 49 trang.
+
+32 mục hiện tại giới thiệu **dòng quà tham khảo**, được đánh dấu `kind: "collection"`. Không coi chúng là 32 SKU đã xác nhận. `types` là danh sách các dòng đang có dữ liệu; `type`/`typeName` thuộc từng mục. Khi bổ sung model, dùng tên/mã, ảnh, thông số và điều kiện do doanh nghiệp xác nhận. Không tạo hàng trăm mục bằng ảnh lặp lại hoặc thông số tự đoán.
+
+Xem [khung nội dung và phương án phát triển](docs/catalog-content-guide.md). Chạy `node --test tests/*.test.cjs` để kiểm tra tìm kiếm, lọc, phân trang, nội dung yêu cầu và xử lý phản hồi form. Giao diện riêng cho tìm quà/catalog nằm trong `assets/catalog-ui.css`.

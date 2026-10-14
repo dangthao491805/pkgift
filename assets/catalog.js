@@ -1,4 +1,4 @@
-/* Danh mục sản phẩm từ catalog công ty. */
+/* Các dòng quà tham khảo từ catalog công ty. Chỉ thêm SKU và thông số khi đã xác nhận mẫu cụ thể. */
 window.PK_CATALOG = {
   "categories": [
     {
@@ -58,7 +58,10 @@ window.PK_CATALOG = {
       ],
       "label": "Giftset",
       "fullPhoto": true,
-      "path": "san-pham/giftset-binh-moc-khoa.html"
+      "path": "san-pham/giftset-binh-moc-khoa.html",
+      "type": "giftset",
+      "typeName": "Bộ quà & giftset",
+      "kind": "collection"
     },
     {
       "id": "pk-002",
@@ -76,7 +79,12 @@ window.PK_CATALOG = {
       ],
       "label": "In logo",
       "fullPhoto": false,
-      "path": "san-pham/bo-so-but-doanh-nghiep.html"
+      "path": "san-pham/bo-so-but-doanh-nghiep.html",
+      "type": "giftset",
+      "typeName": "Bộ quà & giftset",
+      "kind": "collection",
+      "imageFull": "assets/products/so-but-hq.webp",
+      "imageWidth": 1395
     },
     {
       "id": "pk-003",
@@ -93,7 +101,12 @@ window.PK_CATALOG = {
       ],
       "label": "Theo yêu cầu",
       "fullPhoto": false,
-      "path": "san-pham/giftset-tra.html"
+      "path": "san-pham/giftset-tra.html",
+      "type": "giftset",
+      "typeName": "Bộ quà & giftset",
+      "kind": "collection",
+      "imageFull": "assets/products/giftset-tra-hq.webp",
+      "imageWidth": 1394
     },
     {
       "id": "pk-004",
@@ -110,7 +123,12 @@ window.PK_CATALOG = {
       ],
       "label": "Phối set",
       "fullPhoto": false,
-      "path": "san-pham/giftset-than-thien.html"
+      "path": "san-pham/giftset-than-thien.html",
+      "type": "giftset",
+      "typeName": "Bộ quà & giftset",
+      "kind": "collection",
+      "imageFull": "assets/products/giftset-eco-hq.webp",
+      "imageWidth": 1394
     },
     {
       "id": "pk-005",
@@ -127,7 +145,10 @@ window.PK_CATALOG = {
       ],
       "label": "In logo",
       "fullPhoto": true,
-      "path": "san-pham/binh-giu-nhiet.html"
+      "path": "san-pham/binh-giu-nhiet.html",
+      "type": "binh-giu-nhiet",
+      "typeName": "Bình giữ nhiệt",
+      "kind": "collection"
     },
     {
       "id": "pk-006",
@@ -145,7 +166,10 @@ window.PK_CATALOG = {
       ],
       "label": "Thiết kế riêng",
       "fullPhoto": true,
-      "path": "san-pham/ly-su.html"
+      "path": "san-pham/ly-su.html",
+      "type": "ly-su",
+      "typeName": "Ly sứ",
+      "kind": "collection"
     },
     {
       "id": "pk-007",
@@ -162,7 +186,10 @@ window.PK_CATALOG = {
       ],
       "label": "Theo yêu cầu",
       "fullPhoto": false,
-      "path": "san-pham/binh-gom.html"
+      "path": "san-pham/binh-gom.html",
+      "type": "binh-trang-tri",
+      "typeName": "Bình trang trí",
+      "kind": "collection"
     },
     {
       "id": "pk-008",
@@ -179,7 +206,12 @@ window.PK_CATALOG = {
       ],
       "label": "In logo",
       "fullPhoto": false,
-      "path": "san-pham/so-tay.html"
+      "path": "san-pham/so-tay.html",
+      "type": "so-tay",
+      "typeName": "Sổ tay",
+      "kind": "collection",
+      "imageFull": "assets/products/so-tay-hq.webp",
+      "imageWidth": 1353
     },
     {
       "id": "pk-009",
@@ -196,7 +228,12 @@ window.PK_CATALOG = {
       ],
       "label": "Cá nhân hóa",
       "fullPhoto": false,
-      "path": "san-pham/but-ky.html"
+      "path": "san-pham/but-ky.html",
+      "type": "but",
+      "typeName": "Bút",
+      "kind": "collection",
+      "imageFull": "assets/products/but-ky-hq.webp",
+      "imageWidth": 1415
     },
     {
       "id": "pk-010",
@@ -213,7 +250,12 @@ window.PK_CATALOG = {
       ],
       "label": "Phối set",
       "fullPhoto": false,
-      "path": "san-pham/hop-but.html"
+      "path": "san-pham/hop-but.html",
+      "type": "hop-but",
+      "typeName": "Hộp bút",
+      "kind": "collection",
+      "imageFull": "assets/products/hop-but-hq.webp",
+      "imageWidth": 1400
     },
     {
       "id": "pk-011",
@@ -230,7 +272,12 @@ window.PK_CATALOG = {
       ],
       "label": "In logo",
       "fullPhoto": false,
-      "path": "san-pham/tui-canvas.html"
+      "path": "san-pham/tui-canvas.html",
+      "type": "tui",
+      "typeName": "Túi quà tặng",
+      "kind": "collection",
+      "imageFull": "assets/products/tui-canvas-hq.webp",
+      "imageWidth": 1501
     },
     {
       "id": "pk-012",
@@ -247,7 +294,12 @@ window.PK_CATALOG = {
       ],
       "label": "In logo",
       "fullPhoto": false,
-      "path": "san-pham/du-quang-cao.html"
+      "path": "san-pham/du-quang-cao.html",
+      "type": "du",
+      "typeName": "Ô dù",
+      "kind": "collection",
+      "imageFull": "assets/products/du-hq.webp",
+      "imageWidth": 1344
     },
     {
       "id": "pk-013",
@@ -263,7 +315,12 @@ window.PK_CATALOG = {
       ],
       "label": "Theo yêu cầu",
       "fullPhoto": false,
-      "path": "san-pham/ao-mua.html"
+      "path": "san-pham/ao-mua.html",
+      "type": "ao-mua",
+      "typeName": "Áo mưa",
+      "kind": "collection",
+      "imageFull": "assets/products/ao-mua-hq.webp",
+      "imageWidth": 1344
     },
     {
       "id": "pk-014",
@@ -280,7 +337,12 @@ window.PK_CATALOG = {
       ],
       "label": "In logo",
       "fullPhoto": false,
-      "path": "san-pham/mu-bao-hiem.html"
+      "path": "san-pham/mu-bao-hiem.html",
+      "type": "mu-bao-hiem",
+      "typeName": "Mũ bảo hiểm",
+      "kind": "collection",
+      "imageFull": "assets/products/non-hq.webp",
+      "imageWidth": 1336
     },
     {
       "id": "pk-015",
@@ -297,7 +359,12 @@ window.PK_CATALOG = {
       ],
       "label": "Theo yêu cầu",
       "fullPhoto": false,
-      "path": "san-pham/balo.html"
+      "path": "san-pham/balo.html",
+      "type": "balo",
+      "typeName": "Balo",
+      "kind": "collection",
+      "imageFull": "assets/products/balo-hq.webp",
+      "imageWidth": 1336
     },
     {
       "id": "pk-016",
@@ -314,7 +381,12 @@ window.PK_CATALOG = {
       ],
       "label": "In thương hiệu",
       "fullPhoto": false,
-      "path": "san-pham/ao-mua-bo.html"
+      "path": "san-pham/ao-mua-bo.html",
+      "type": "ao-mua",
+      "typeName": "Áo mưa",
+      "kind": "collection",
+      "imageFull": "assets/products/ao-mua-bo-hq.webp",
+      "imageWidth": 1299
     },
     {
       "id": "pk-017",
@@ -331,7 +403,10 @@ window.PK_CATALOG = {
       ],
       "label": "Theo nội dung",
       "fullPhoto": false,
-      "path": "san-pham/cup-luu-niem.html"
+      "path": "san-pham/cup-luu-niem.html",
+      "type": "cup",
+      "typeName": "Cúp lưu niệm",
+      "kind": "collection"
     },
     {
       "id": "pk-018",
@@ -348,7 +423,12 @@ window.PK_CATALOG = {
       ],
       "label": "Thiết kế nội dung",
       "fullPhoto": false,
-      "path": "san-pham/ky-niem-chuong.html"
+      "path": "san-pham/ky-niem-chuong.html",
+      "type": "ky-niem-chuong",
+      "typeName": "Kỷ niệm chương",
+      "kind": "collection",
+      "imageFull": "assets/products/ky-niem-chuong-hq.webp",
+      "imageWidth": 1318
     },
     {
       "id": "pk-019",
@@ -364,7 +444,12 @@ window.PK_CATALOG = {
       ],
       "label": "Theo chương trình",
       "fullPhoto": false,
-      "path": "san-pham/huy-chuong.html"
+      "path": "san-pham/huy-chuong.html",
+      "type": "huy-chuong",
+      "typeName": "Huy chương & biểu trưng",
+      "kind": "collection",
+      "imageFull": "assets/products/huy-chuong-hq.webp",
+      "imageWidth": 1336
     },
     {
       "id": "pk-020",
@@ -381,7 +466,10 @@ window.PK_CATALOG = {
       ],
       "label": "Theo mùa",
       "fullPhoto": true,
-      "path": "san-pham/qua-tet.html"
+      "path": "san-pham/qua-tet.html",
+      "type": "qua-tet",
+      "typeName": "Quà Tết",
+      "kind": "collection"
     },
     {
       "id": "pk-021",
@@ -398,7 +486,12 @@ window.PK_CATALOG = {
       ],
       "label": "Theo mùa",
       "fullPhoto": false,
-      "path": "san-pham/qua-trung-thu.html"
+      "path": "san-pham/qua-trung-thu.html",
+      "type": "qua-trung-thu",
+      "typeName": "Quà Trung thu",
+      "kind": "collection",
+      "imageFull": "assets/products/trung-thu-hq.webp",
+      "imageWidth": 1408
     },
     {
       "id": "pk-022",
@@ -415,7 +508,10 @@ window.PK_CATALOG = {
       ],
       "label": "Quà công nghệ",
       "fullPhoto": false,
-      "path": "san-pham/chuot-khong-day.html"
+      "path": "san-pham/chuot-khong-day.html",
+      "type": "chuot",
+      "typeName": "Chuột máy tính",
+      "kind": "collection"
     },
     {
       "id": "pk-023",
@@ -432,7 +528,12 @@ window.PK_CATALOG = {
       ],
       "label": "Theo yêu cầu",
       "fullPhoto": false,
-      "path": "san-pham/usb-qua-tang.html"
+      "path": "san-pham/usb-qua-tang.html",
+      "type": "usb",
+      "typeName": "USB",
+      "kind": "collection",
+      "imageFull": "assets/products/usb-hq.webp",
+      "imageWidth": 1409
     },
     {
       "id": "pk-024",
@@ -449,7 +550,12 @@ window.PK_CATALOG = {
       ],
       "label": "Quà công nghệ",
       "fullPhoto": false,
-      "path": "san-pham/loa-quatang.html"
+      "path": "san-pham/loa-quatang.html",
+      "type": "loa",
+      "typeName": "Loa",
+      "kind": "collection",
+      "imageFull": "assets/products/loa-hq.webp",
+      "imageWidth": 1405
     },
     {
       "id": "pk-025",
@@ -466,7 +572,12 @@ window.PK_CATALOG = {
       ],
       "label": "Quà tiện ích",
       "fullPhoto": false,
-      "path": "san-pham/goi-co.html"
+      "path": "san-pham/goi-co.html",
+      "type": "goi-co",
+      "typeName": "Gối cổ",
+      "kind": "collection",
+      "imageFull": "assets/products/goi-co-hq.webp",
+      "imageWidth": 1402
     },
     {
       "id": "pk-026",
@@ -483,7 +594,12 @@ window.PK_CATALOG = {
       ],
       "label": "Phối set",
       "fullPhoto": false,
-      "path": "san-pham/khan.html"
+      "path": "san-pham/khan.html",
+      "type": "khan",
+      "typeName": "Khăn",
+      "kind": "collection",
+      "imageFull": "assets/products/khan-hq.webp",
+      "imageWidth": 1419
     },
     {
       "id": "pk-027",
@@ -500,7 +616,12 @@ window.PK_CATALOG = {
       ],
       "label": "Phong cách tự nhiên",
       "fullPhoto": false,
-      "path": "san-pham/ly-tre.html"
+      "path": "san-pham/ly-tre.html",
+      "type": "ly-tu-nhien",
+      "typeName": "Ly phong cách tự nhiên",
+      "kind": "collection",
+      "imageFull": "assets/products/ly-tre-hq.webp",
+      "imageWidth": 1419
     },
     {
       "id": "pk-028",
@@ -517,7 +638,12 @@ window.PK_CATALOG = {
       ],
       "label": "Phối set",
       "fullPhoto": false,
-      "path": "san-pham/but-go.html"
+      "path": "san-pham/but-go.html",
+      "type": "but",
+      "typeName": "Bút",
+      "kind": "collection",
+      "imageFull": "assets/products/but-go-hq.webp",
+      "imageWidth": 1277
     },
     {
       "id": "pk-029",
@@ -534,7 +660,12 @@ window.PK_CATALOG = {
       ],
       "label": "Theo chất liệu",
       "fullPhoto": false,
-      "path": "san-pham/tui-phong-cach-tu-nhien.html"
+      "path": "san-pham/tui-phong-cach-tu-nhien.html",
+      "type": "tui",
+      "typeName": "Túi quà tặng",
+      "kind": "collection",
+      "imageFull": "assets/products/tui-day-hq.webp",
+      "imageWidth": 1419
     },
     {
       "id": "pk-030",
@@ -552,7 +683,12 @@ window.PK_CATALOG = {
       ],
       "label": "Quà gia dụng",
       "fullPhoto": false,
-      "path": "san-pham/bo-am-chen.html"
+      "path": "san-pham/bo-am-chen.html",
+      "type": "bo-am-chen",
+      "typeName": "Bộ ấm chén",
+      "kind": "collection",
+      "imageFull": "assets/products/bo-am-chen-hq.webp",
+      "imageWidth": 1394
     },
     {
       "id": "pk-031",
@@ -569,7 +705,12 @@ window.PK_CATALOG = {
       ],
       "label": "Phối theo yêu cầu",
       "fullPhoto": false,
-      "path": "san-pham/set-gia-dung.html"
+      "path": "san-pham/set-gia-dung.html",
+      "type": "bo-gia-dung",
+      "typeName": "Bộ gia dụng",
+      "kind": "collection",
+      "imageFull": "assets/products/set-but-binh-hq.webp",
+      "imageWidth": 1395
     },
     {
       "id": "pk-032",
@@ -586,7 +727,114 @@ window.PK_CATALOG = {
       ],
       "label": "Giftset",
       "fullPhoto": false,
-      "path": "san-pham/set-phu-kien.html"
+      "path": "san-pham/set-phu-kien.html",
+      "type": "giftset",
+      "typeName": "Bộ quà & giftset",
+      "kind": "collection",
+      "imageFull": "assets/products/set-cong-nghe-hq.webp",
+      "imageWidth": 1381
+    }
+  ],
+  "types": [
+    {
+      "id": "giftset",
+      "name": "Bộ quà & giftset"
+    },
+    {
+      "id": "binh-giu-nhiet",
+      "name": "Bình giữ nhiệt"
+    },
+    {
+      "id": "ly-su",
+      "name": "Ly sứ"
+    },
+    {
+      "id": "binh-trang-tri",
+      "name": "Bình trang trí"
+    },
+    {
+      "id": "so-tay",
+      "name": "Sổ tay"
+    },
+    {
+      "id": "but",
+      "name": "Bút"
+    },
+    {
+      "id": "hop-but",
+      "name": "Hộp bút"
+    },
+    {
+      "id": "tui",
+      "name": "Túi quà tặng"
+    },
+    {
+      "id": "du",
+      "name": "Ô dù"
+    },
+    {
+      "id": "ao-mua",
+      "name": "Áo mưa"
+    },
+    {
+      "id": "mu-bao-hiem",
+      "name": "Mũ bảo hiểm"
+    },
+    {
+      "id": "balo",
+      "name": "Balo"
+    },
+    {
+      "id": "cup",
+      "name": "Cúp lưu niệm"
+    },
+    {
+      "id": "ky-niem-chuong",
+      "name": "Kỷ niệm chương"
+    },
+    {
+      "id": "huy-chuong",
+      "name": "Huy chương & biểu trưng"
+    },
+    {
+      "id": "qua-tet",
+      "name": "Quà Tết"
+    },
+    {
+      "id": "qua-trung-thu",
+      "name": "Quà Trung thu"
+    },
+    {
+      "id": "chuot",
+      "name": "Chuột máy tính"
+    },
+    {
+      "id": "usb",
+      "name": "USB"
+    },
+    {
+      "id": "loa",
+      "name": "Loa"
+    },
+    {
+      "id": "goi-co",
+      "name": "Gối cổ"
+    },
+    {
+      "id": "khan",
+      "name": "Khăn"
+    },
+    {
+      "id": "ly-tu-nhien",
+      "name": "Ly phong cách tự nhiên"
+    },
+    {
+      "id": "bo-am-chen",
+      "name": "Bộ ấm chén"
+    },
+    {
+      "id": "bo-gia-dung",
+      "name": "Bộ gia dụng"
     }
   ]
 };

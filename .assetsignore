@@ -3,6 +3,7 @@
 /.github/
 /tests/
 /tools/
+/docs/
 /README.md
 /assets/IMAGE_ASSETS.md
 /wrangler.jsonc

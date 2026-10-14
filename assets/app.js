@@ -62,7 +62,8 @@
     $$('.inquiry-list').forEach(el => el.textContent = names ? 'Sản phẩm quan tâm: '+names : '');
   }
   function productCard(p) {
-    return `<article class="product-card"><a class="product-photo ${p.fullPhoto?'photo-full':''}" href="${base+U.escape(p.path)}" aria-label="Xem ${U.escape(p.name)}"><span class="tag">${U.escape(p.label || 'Theo yêu cầu')}</span><img src="${base+U.escape(p.image)}" alt="${U.escape(p.name)}" loading="lazy" width="300" height="240"></a><div class="product-body"><small>${U.escape(p.categoryName)}</small><h3><a href="${base+U.escape(p.path)}">${U.escape(p.name)}</a></h3><p>${U.escape(p.description)}</p><div class="product-bottom"><span class="product-price">Liên hệ báo giá</span><button type="button" class="add-btn" data-add="${p.id}" aria-label="Thêm ${U.escape(p.name)} vào yêu cầu báo giá">${plus} Báo giá</button></div></div></article>`;
+    const responsive = p.imageFull && p.imageWidth > 640 ? ` srcset="${base+U.escape(p.image)} 640w, ${base+U.escape(p.imageFull)} ${p.imageWidth}w" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 960px) calc(50vw - 60px), 360px"` : '';
+    return `<article class="product-card"><a class="product-photo ${p.fullPhoto?'photo-full':''}" href="${base+U.escape(p.path)}" aria-label="Xem ${U.escape(p.name)}"><span class="tag">${U.escape(p.label || 'Theo yêu cầu')}</span><img src="${base+U.escape(p.image)}"${responsive} alt="${U.escape(p.name)}" loading="lazy" decoding="async" width="300" height="240"></a><div class="product-body"><small>${U.escape(p.typeName || p.categoryName)}</small><h3><a href="${base+U.escape(p.path)}">${U.escape(p.name)}</a></h3><p>${U.escape(p.description)}</p><div class="product-bottom"><span class="product-price">Liên hệ báo giá</span><button type="button" class="add-btn" data-add="${p.id}" aria-label="Thêm ${U.escape(p.name)} vào yêu cầu báo giá">${plus} Báo giá</button></div></div></article>`;
   }
   function renderSearch() {
     const input = $('#global-search'); const box = $('#global-search-results'); if (!input || !box) return;
@@ -71,13 +72,34 @@
   }
   const catalogGrid = $('#catalog-grid');
   let selectedCategory = 'tat-ca';
+  let selectedType = 'tat-ca';
+  let catalogPage = 1;
+  function renderCatalogTypes() {
+    const select = $('#catalog-type'); if (!select) return;
+    const available = new Set(products.filter(p => selectedCategory === 'tat-ca' || p.category === selectedCategory).map(p => p.type));
+    const types = (window.PK_CATALOG.types || []).filter(type => available.has(type.id));
+    if (selectedType !== 'tat-ca' && !available.has(selectedType)) selectedType = 'tat-ca';
+    select.innerHTML = '<option value="tat-ca">Tất cả dòng quà</option>' + types.map(type => `<option value="${U.escape(type.id)}">${U.escape(type.name)}</option>`).join('');
+    select.value = selectedType;
+  }
   function renderCatalog(updateUrl = true) {
     if (!catalogGrid) return;
+    renderCatalogTypes();
     const query = $('#catalog-search').value;
     const sort = $('#catalog-sort').value;
-    const found = U.filterProducts(products, query, selectedCategory, sort);
-    catalogGrid.innerHTML = found.length ? found.map(productCard).join('') : '<div class="glass empty-state"><h3>Chưa có kết quả phù hợp</h3><p>Thử từ khóa khác hoặc xem tất cả nhóm quà tặng.</p><button type="button" class="btn" data-reset-catalog style="margin-top:22px">Xóa bộ lọc</button></div>';
-    $('#catalog-count').textContent = `${found.length} gợi ý sản phẩm`;
+    const found = U.filterProducts(products, query, selectedCategory, sort, selectedType);
+    const page = U.paginateProducts(found, catalogPage); catalogPage = page.page;
+    catalogGrid.innerHTML = found.length ? page.items.map(productCard).join('') : '<div class="glass empty-state"><h3>Chưa có lựa chọn phù hợp</h3><p>Thử bỏ bớt bộ lọc hoặc gửi nhu cầu để chúng tôi tìm mẫu theo yêu cầu của bạn.</p><div class="empty-state-actions"><button type="button" class="btn" data-reset-catalog>Xóa bộ lọc</button><button type="button" class="btn primary" data-open="inquiry-dialog">Nhờ tư vấn mẫu</button></div></div>';
+    $('#catalog-count').textContent = found.length ? `${found.length} gợi ý · Đang xem ${page.start}–${page.end}` : 'Chưa có kết quả';
+    const heading = $('#catalog-title');
+    if (heading) heading.textContent = selectedType !== 'tat-ca' ? window.PK_CATALOG.types.find(type => type.id === selectedType).name : window.PK_CATALOG.categories.find(c => c.id === selectedCategory)?.name || 'Tất cả quà tặng';
+    const reset = $('[data-catalog-clear]');
+    if (reset) reset.hidden = selectedCategory === 'tat-ca' && selectedType === 'tat-ca' && !query.trim();
+    const pagination = $('#catalog-pagination');
+    if (pagination) {
+      pagination.hidden = page.pages <= 1;
+      pagination.innerHTML = `<button type="button" class="btn" data-catalog-page="${page.page-1}" ${page.page === 1 ? 'disabled' : ''} aria-label="Xem trang trước">Trang trước</button><span aria-current="page">Trang ${page.page} / ${page.pages}</span><button type="button" class="btn" data-catalog-page="${page.page+1}" ${page.page === page.pages ? 'disabled' : ''} aria-label="Xem trang sau">Trang sau</button>`;
+    }
     $$('[data-category]').forEach(button=>{
       const active=button.dataset.category===selectedCategory;
       button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));
@@ -87,6 +109,8 @@
       if (selectedCategory === 'tat-ca') url.searchParams.delete('nhom'); else url.searchParams.set('nhom',selectedCategory);
       if (query.trim()) url.searchParams.set('q',query.trim()); else url.searchParams.delete('q');
       if (sort !== 'featured') url.searchParams.set('sap-xep',sort); else url.searchParams.delete('sap-xep');
+      if (selectedType !== 'tat-ca') url.searchParams.set('loai',selectedType); else url.searchParams.delete('loai');
+      if (catalogPage > 1) url.searchParams.set('trang',String(catalogPage)); else url.searchParams.delete('trang');
       history.replaceState(null,'',url);
     }
   }
@@ -94,11 +118,14 @@
     const params = new URLSearchParams(location.search);
     const category = params.get('nhom');
     if (window.PK_CATALOG.categories.some(c=>c.id===category)) selectedCategory=category;
+    if ((window.PK_CATALOG.types || []).some(type => type.id === params.get('loai'))) selectedType = params.get('loai');
+    catalogPage = params.get('trang') || 1;
     $('#catalog-search').value = (params.get('q') || '').slice(0,100);
     if (['featured','az','za'].includes(params.get('sap-xep'))) $('#catalog-sort').value=params.get('sap-xep');
     renderCatalog(false);
-    $('#catalog-search').addEventListener('input',()=>renderCatalog());
-    $('#catalog-sort').addEventListener('change',()=>renderCatalog());
+    $('#catalog-search').addEventListener('input',()=>{catalogPage=1;renderCatalog();});
+    $('#catalog-sort').addEventListener('change',()=>{catalogPage=1;renderCatalog();});
+    $('#catalog-type')?.addEventListener('change',event=>{selectedType=event.target.value;catalogPage=1;renderCatalog();});
   }
 
   document.addEventListener('click', event => {
@@ -113,8 +140,10 @@
     const remove = event.target.closest('[data-remove]');
     if (remove) {cart=cart.filter(item=>item.id!==remove.dataset.remove);saveCart();renderCart();return;}
     const category = event.target.closest('[data-category]');
-    if (category) {selectedCategory=category.dataset.category;renderCatalog();return;}
-    if (event.target.closest('[data-reset-catalog]')) {selectedCategory='tat-ca';$('#catalog-search').value='';$('#catalog-sort').value='featured';renderCatalog();return;}
+    if (category) {selectedCategory=category.dataset.category;selectedType='tat-ca';catalogPage=1;renderCatalog();return;}
+    if (event.target.closest('[data-reset-catalog]')) {selectedCategory='tat-ca';selectedType='tat-ca';catalogPage=1;$('#catalog-search').value='';$('#catalog-sort').value='featured';renderCatalog();return;}
+    const nextPage = event.target.closest('[data-catalog-page]');
+    if (nextPage) {catalogPage=nextPage.dataset.catalogPage;renderCatalog();$('#catalog-title')?.focus();return;}
     if (event.target.closest('[data-copy-quote]')) copyQuote();
   });
   document.addEventListener('change',event=>{
@@ -167,7 +196,7 @@
       const status=$('.form-status',form);status.replaceChildren();
       if(data.website||data._honey){status.textContent='Vui lòng liên hệ trực tiếp qua hotline.';return;}
       const error=U.validateInquiry(data);if(error){status.textContent=error;return;}
-      const body=U.composeInquiry(data,cart,products);const subject='Yêu cầu tư vấn quà tặng'+(data.company?' — '+data.company:'');
+      const body=U.composeInquiry(data,cart,products,C.siteUrl);const subject='Yêu cầu tư vấn quà tặng'+(data.company?' — '+data.company:'');
       const button=$('[type="submit"]',form);const label=button.innerHTML;
       form.dataset.submitting='true';form.setAttribute('aria-busy','true');
       button.disabled=true;button.textContent='Đang gửi…';status.dataset.state='sending';
