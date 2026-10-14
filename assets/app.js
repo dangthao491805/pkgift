@@ -5,6 +5,7 @@
   const products = window.PK_CATALOG.products;
   const U = window.PK_UTILS;
   const base = document.documentElement.dataset.base || '';
+  const photoUrl = path => U.escape(U.assetUrl(path, base));
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const cartKey = 'pktp-quote-list-v1';
@@ -54,7 +55,7 @@
     if (actions) actions.hidden = false;
     container.innerHTML = cart.map(item => {
       const p = products.find(p => p.id === item.id);
-      return `<div class="quote-item"><img src="${base+U.escape(p.image)}" alt="${U.escape(p.name)}" width="74" height="75"><div class="quote-item-info"><a href="${base+U.escape(p.path)}"><strong>${U.escape(p.name)}</strong></a><small>${U.escape(p.categoryName)}</small><div class="quote-qty"><label for="qty-${p.id}">Số lượng</label><input id="qty-${p.id}" data-cart-qty="${p.id}" type="number" min="1" max="99999" step="1" value="${item.quantity}"></div></div><button type="button" class="remove-item" data-remove="${p.id}" aria-label="Xóa ${U.escape(p.name)}">×</button></div>`;
+      return `<div class="quote-item"><img src="${photoUrl(p.image)}" alt="${U.escape(p.name)}" width="74" height="75"><div class="quote-item-info"><a href="${base+U.escape(p.path)}"><strong>${U.escape(p.name)}</strong></a><small>${U.escape(p.sourceBrand || p.categoryName)}</small><div class="quote-qty"><label for="qty-${p.id}">Số lượng</label><input id="qty-${p.id}" data-cart-qty="${p.id}" type="number" min="1" max="99999" step="1" value="${item.quantity}"></div></div><button type="button" class="remove-item" data-remove="${p.id}" aria-label="Xóa ${U.escape(p.name)}">×</button></div>`;
     }).join('');
   }
   function syncInquiryItems() {
@@ -62,17 +63,18 @@
     $$('.inquiry-list').forEach(el => el.textContent = names ? 'Sản phẩm quan tâm: '+names : '');
   }
   function productCard(p) {
-    const responsive = p.imageFull && p.imageWidth > 640 ? ` srcset="${base+U.escape(p.image)} 640w, ${base+U.escape(p.imageFull)} ${p.imageWidth}w" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 960px) calc(50vw - 60px), 360px"` : '';
-    return `<article class="product-card"><a class="product-photo ${p.fullPhoto?'photo-full':''}" href="${base+U.escape(p.path)}" aria-label="Xem ${U.escape(p.name)}"><span class="tag">${U.escape(p.label || 'Theo yêu cầu')}</span><img src="${base+U.escape(p.image)}"${responsive} alt="${U.escape(p.name)}" loading="lazy" decoding="async" width="300" height="240"></a><div class="product-body"><small>${U.escape(p.typeName || p.categoryName)}</small><h3><a href="${base+U.escape(p.path)}">${U.escape(p.name)}</a></h3><p>${U.escape(p.description)}</p><div class="product-bottom"><span class="product-price">Liên hệ báo giá</span><button type="button" class="add-btn" data-add="${p.id}" aria-label="Thêm ${U.escape(p.name)} vào yêu cầu báo giá">${plus} Báo giá</button></div></div></article>`;
+    const responsive = p.imageFull && p.imageWidth > 640 ? ` srcset="${photoUrl(p.image)} 640w, ${photoUrl(p.imageFull)} ${p.imageWidth}w" sizes="(max-width: 620px) calc(100vw - 48px), (max-width: 960px) calc(50vw - 60px), 360px"` : '';
+    return `<article class="product-card"><a class="product-photo ${p.fullPhoto?'photo-full':''}" href="${base+U.escape(p.path)}" aria-label="Xem ${U.escape(p.name)}"><span class="tag">${U.escape(p.sourceBrand || p.label || 'Theo yêu cầu')}</span><img src="${photoUrl(p.image)}"${responsive} alt="${U.escape(p.name)}" loading="lazy" decoding="async" width="300" height="300"></a><div class="product-body"><small>${U.escape(p.typeName || p.categoryName)}</small><h3><a href="${base+U.escape(p.path)}">${U.escape(p.name)}</a></h3>${p.sku ? `<div class="model-code">Mã hãng: ${U.escape(p.sku)}</div>` : ''}<p>${U.escape(p.description)}</p><div class="product-bottom"><span class="product-price">Liên hệ báo giá</span><button type="button" class="add-btn" data-add="${p.id}" aria-label="Thêm ${U.escape(p.name)} vào yêu cầu báo giá">${plus} Báo giá</button></div></div></article>`;
   }
   function renderSearch() {
     const input = $('#global-search'); const box = $('#global-search-results'); if (!input || !box) return;
     const found = U.filterProducts(products, input.value, 'tat-ca').slice(0,12);
-    box.innerHTML = found.length ? found.map(p=>`<a class="search-result" href="${base+U.escape(p.path)}"><img src="${base+U.escape(p.image)}" alt="" width="62" height="60"><span><strong>${U.escape(p.name)}</strong><small>${U.escape(p.categoryName)}</small></span>${arrow}</a>`).join('') : '<div class="empty-state"><p>Chưa tìm thấy sản phẩm phù hợp. Thử “bình”, “sổ”, “túi” hoặc gửi nhu cầu để được tư vấn.</p></div>';
+    box.innerHTML = found.length ? found.map(p=>`<a class="search-result" href="${base+U.escape(p.path)}"><img src="${photoUrl(p.image)}" alt="" width="62" height="60"><span><strong>${U.escape(p.name)}</strong><small>${U.escape(p.sourceBrand || p.categoryName)}${p.sku ? ' · '+U.escape(p.sku) : ''}</small></span>${arrow}</a>`).join('') : '<div class="empty-state"><p>Chưa tìm thấy sản phẩm phù hợp. Thử “bình”, “sổ”, “túi” hoặc gửi nhu cầu để được tư vấn.</p></div>';
   }
   const catalogGrid = $('#catalog-grid');
   let selectedCategory = 'tat-ca';
   let selectedType = 'tat-ca';
+  let selectedBrand = 'tat-ca';
   let catalogPage = 1;
   function renderCatalogTypes() {
     const select = $('#catalog-type'); if (!select) return;
@@ -87,14 +89,14 @@
     renderCatalogTypes();
     const query = $('#catalog-search').value;
     const sort = $('#catalog-sort').value;
-    const found = U.filterProducts(products, query, selectedCategory, sort, selectedType);
+    const found = U.filterProducts(products, query, selectedCategory, sort, selectedType, selectedBrand);
     const page = U.paginateProducts(found, catalogPage); catalogPage = page.page;
     catalogGrid.innerHTML = found.length ? page.items.map(productCard).join('') : '<div class="glass empty-state"><h3>Chưa có lựa chọn phù hợp</h3><p>Thử bỏ bớt bộ lọc hoặc gửi nhu cầu để chúng tôi tìm mẫu theo yêu cầu của bạn.</p><div class="empty-state-actions"><button type="button" class="btn" data-reset-catalog>Xóa bộ lọc</button><button type="button" class="btn primary" data-open="inquiry-dialog">Nhờ tư vấn mẫu</button></div></div>';
     $('#catalog-count').textContent = found.length ? `${found.length} gợi ý · Đang xem ${page.start}–${page.end}` : 'Chưa có kết quả';
     const heading = $('#catalog-title');
     if (heading) heading.textContent = selectedType !== 'tat-ca' ? window.PK_CATALOG.types.find(type => type.id === selectedType).name : window.PK_CATALOG.categories.find(c => c.id === selectedCategory)?.name || 'Tất cả quà tặng';
     const reset = $('[data-catalog-clear]');
-    if (reset) reset.hidden = selectedCategory === 'tat-ca' && selectedType === 'tat-ca' && !query.trim();
+    if (reset) reset.hidden = selectedCategory === 'tat-ca' && selectedType === 'tat-ca' && selectedBrand === 'tat-ca' && !query.trim();
     const pagination = $('#catalog-pagination');
     if (pagination) {
       pagination.hidden = page.pages <= 1;
@@ -110,6 +112,7 @@
       if (query.trim()) url.searchParams.set('q',query.trim()); else url.searchParams.delete('q');
       if (sort !== 'featured') url.searchParams.set('sap-xep',sort); else url.searchParams.delete('sap-xep');
       if (selectedType !== 'tat-ca') url.searchParams.set('loai',selectedType); else url.searchParams.delete('loai');
+      if (selectedBrand !== 'tat-ca') url.searchParams.set('thuong-hieu',selectedBrand); else url.searchParams.delete('thuong-hieu');
       if (catalogPage > 1) url.searchParams.set('trang',String(catalogPage)); else url.searchParams.delete('trang');
       history.replaceState(null,'',url);
     }
@@ -120,12 +123,15 @@
     if (window.PK_CATALOG.categories.some(c=>c.id===category)) selectedCategory=category;
     if ((window.PK_CATALOG.types || []).some(type => type.id === params.get('loai'))) selectedType = params.get('loai');
     catalogPage = params.get('trang') || 1;
+    if ((window.PK_CATALOG.brands || []).some(brand => brand.id === params.get('thuong-hieu'))) selectedBrand = params.get('thuong-hieu');
+    if ($('#catalog-brand')) $('#catalog-brand').value = selectedBrand;
     $('#catalog-search').value = (params.get('q') || '').slice(0,100);
     if (['featured','az','za'].includes(params.get('sap-xep'))) $('#catalog-sort').value=params.get('sap-xep');
     renderCatalog(false);
     $('#catalog-search').addEventListener('input',()=>{catalogPage=1;renderCatalog();});
     $('#catalog-sort').addEventListener('change',()=>{catalogPage=1;renderCatalog();});
     $('#catalog-type')?.addEventListener('change',event=>{selectedType=event.target.value;catalogPage=1;renderCatalog();});
+    $('#catalog-brand')?.addEventListener('change',event=>{selectedBrand=event.target.value;catalogPage=1;renderCatalog();});
   }
 
   document.addEventListener('click', event => {
@@ -141,7 +147,7 @@
     if (remove) {cart=cart.filter(item=>item.id!==remove.dataset.remove);saveCart();renderCart();return;}
     const category = event.target.closest('[data-category]');
     if (category) {selectedCategory=category.dataset.category;selectedType='tat-ca';catalogPage=1;renderCatalog();return;}
-    if (event.target.closest('[data-reset-catalog]')) {selectedCategory='tat-ca';selectedType='tat-ca';catalogPage=1;$('#catalog-search').value='';$('#catalog-sort').value='featured';renderCatalog();return;}
+    if (event.target.closest('[data-reset-catalog]')) {selectedCategory='tat-ca';selectedType='tat-ca';selectedBrand='tat-ca';catalogPage=1;$('#catalog-search').value='';$('#catalog-sort').value='featured';if($('#catalog-brand'))$('#catalog-brand').value='tat-ca';renderCatalog();return;}
     const nextPage = event.target.closest('[data-catalog-page]');
     if (nextPage) {catalogPage=nextPage.dataset.catalogPage;renderCatalog();$('#catalog-title')?.focus();return;}
     if (event.target.closest('[data-copy-quote]')) copyQuote();
@@ -255,4 +261,5 @@
   window.addEventListener('pageshow',syncAmbientMotion);
   reducedMotion.addEventListener?.('change',syncAmbientMotion);syncAmbientMotion();
   updateCartCount();syncInquiryItems();
+  window.PK_UI = {productCard};
 })();

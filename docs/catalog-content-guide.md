@@ -83,3 +83,8 @@ Form hiện dùng FormSubmit tới `pkgift.sales@gmail.com`. Lần kiểm tra tr
 ## Kiểm tra kỹ thuật
 
 Chạy `node --test tests/*.test.cjs` và `node --check assets/app.js`. Kiểm tra tài nguyên/liên kết nội bộ, nhãn form, phiên bản script đồng bộ trên 49 trang và toàn bộ mục catalog không bị mất khi phân trang. Không có công cụ browser QA trong môi trường này, nên không tuyên bố đã kiểm tra trực quan trên trình duyệt.
+
+
+## Cập nhật tiếp theo: ảnh theo thương hiệu
+
+Đã thêm các mục và gallery tham khảo từ bốn nguồn chính thức, bộ lọc thương hiệu và trang model dùng URL có mã. Đây là catalog tham khảo công khai; dữ liệu thương mại do doanh nghiệp duyệt vẫn cần được điền theo mẫu thu thập. Xem `brand-image-sources.md` để phân biệt dữ liệu nguồn và các cam kết kinh doanh còn chờ xác nhận.

@@ -6,7 +6,7 @@ Website HTML/CSS/JavaScript thuần, tông đen – vàng kim. Tiêu đề dùng
 
 - Trang chủ với Layered Glassmorphism và Bento Grid; nền parallax nhẹ, tương tác hover nhỏ, tự giảm chuyển động theo cài đặt thiết bị.
 - Giới thiệu đầy đủ nội dung định vị, sứ mệnh và quy trình của công ty.
-- 32 gợi ý sản phẩm, 10 nhóm, tìm kiếm không dấu, bộ lọc và trang chi tiết riêng.
+- 32 dòng quà của công ty và 2,683 mục mẫu tham khảo từ ELMICH, INOCHI, TOKYO LIFE, LocknLock; lọc nhóm/dòng/thương hiệu, tìm tên hoặc mã hãng, phân trang và gallery ảnh gốc.
 - Danh sách yêu cầu báo giá: chọn mẫu, đổi số lượng, xóa và sao chép.
 - Giải pháp, dịch vụ, các trang khách sạn/resort, Tết, Trung thu và 20/10.
 - Cẩm nang với 3 bài viết, FAQ, liên hệ, nút gọi/Zalo/bản đồ, dự trù ngân sách.
@@ -75,8 +75,17 @@ Trong Cloudflare → Worker `pkgift` → Settings → Build Configuration: dùng
 
 ## Catalog và bổ sung mẫu sản phẩm
 
-Trang chủ có tìm kiếm và đường vào các dòng quà. Danh mục lọc theo nhóm/dòng, tìm nhiều từ không dấu và phân trang 18 mục. Bộ lọc dùng các tham số `nhom`, `loai`, `q`, `sap-xep`, `trang`, nên có thể chia sẻ đường dẫn tới một lựa chọn. Phiên bản script được cập nhật đồng bộ trên 49 trang.
+Trang chủ có tìm kiếm và đường vào các dòng quà. Danh mục lọc theo nhóm/dòng, tìm nhiều từ không dấu và phân trang 18 mục. Bộ lọc dùng các tham số `nhom`, `loai`, `thuong-hieu`, `q`, `sap-xep`, `trang`, nên có thể chia sẻ đường dẫn tới một lựa chọn. Phiên bản script được cập nhật đồng bộ trên các trang.
 
 32 mục hiện tại giới thiệu **dòng quà tham khảo**, được đánh dấu `kind: "collection"`. Không coi chúng là 32 SKU đã xác nhận. `types` là danh sách các dòng đang có dữ liệu; `type`/`typeName` thuộc từng mục. Khi bổ sung model, dùng tên/mã, ảnh, thông số và điều kiện do doanh nghiệp xác nhận. Không tạo hàng trăm mục bằng ảnh lặp lại hoặc thông số tự đoán.
 
 Xem [khung nội dung và phương án phát triển](docs/catalog-content-guide.md). Chạy `node --test tests/*.test.cjs` để kiểm tra tìm kiếm, lọc, phân trang, nội dung yêu cầu và xử lý phản hồi form. Giao diện riêng cho tìm quà/catalog nằm trong `assets/catalog-ui.css`.
+
+
+## Ảnh và mẫu theo thương hiệu — 14/10/2026
+
+Catalog tham khảo được bổ sung từ các trang hãng/nhà cung cấp, có nguồn đối chiếu cho từng mục. `assets/brand-catalog.js` thêm dữ liệu vào 32 dòng quà trong `assets/catalog.js`; một số mục nguồn là biến thể màu/quy cách và không được xem là số thiết kế vật lý duy nhất. `san-pham/mau-hang.html?mau=<id>` mở đúng model, giữ link model khi gửi yêu cầu báo giá.
+
+Gallery gốc nằm trong `assets/brand-galleries/<thuong-hieu>.json` và chỉ được tải khi mở mẫu của hãng đó. Thẻ danh mục dùng thumbnail chính thức, ảnh lớn dùng URL gốc. `assets/image-layout.css` bỏ đệm ảnh, đồng nhất nền và giữ tỷ lệ sản phẩm trên trang chủ, catalog, trang chi tiết và các khối ảnh nội dung.
+
+Các hình ảnh vẫn được phục vụ từ CDN hãng. Nếu hãng đổi/xóa tệp, cần cập nhật dữ liệu hoặc thay bằng ảnh do công ty cung cấp. Không công bố giá bán lẻ của hãng thành giá báo của PK Gift. Không suy diễn tồn kho, MOQ, thời gian giao, ưu đãi hay quan hệ đại lý. Xem `docs/brand-image-sources.md` và `assets/BRAND_IMAGE_SOURCES.json` để rà nguồn.

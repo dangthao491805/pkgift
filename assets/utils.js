@@ -2,6 +2,7 @@
 window.PK_UTILS = (() => {
   const normalize = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase();
   const escape = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const assetUrl = (path, base = '') => /^https:\/\//i.test(String(path || '')) ? String(path) : base + String(path || '');
   const quantity = value => Math.min(99999, Math.max(1, Math.floor(Number(value) || 1)));
   const cleanCart = (value, products) => {
     if (!Array.isArray(value)) return [];
@@ -13,12 +14,13 @@ window.PK_UTILS = (() => {
     return [...unique.values()];
   };
   const searchTerms = value => normalize(value).replace(/gift\s+set/g, 'giftset').replace(/ba\s+lo/g, 'balo').replace(/lock\s*&\s*lock/g, 'locknlock').trim().split(/\s+/).filter(Boolean);
-  const filterProducts = (products, query, category, sort = 'featured', type = 'tat-ca') => {
+  const filterProducts = (products, query, category, sort = 'featured', type = 'tat-ca', brand = 'tat-ca') => {
     const terms = searchTerms(query);
     const list = products.filter(p => {
       if (category && category !== 'tat-ca' && p.category !== category) return false;
       if (type && type !== 'tat-ca' && p.type !== type) return false;
-      const haystack = normalize([p.name,p.description,p.categoryName,p.typeName,p.sku,...(p.tags || [])].join(' '));
+      if (brand && brand !== 'tat-ca' && p.brandId !== brand) return false;
+      const haystack = normalize([p.name,p.description,p.categoryName,p.typeName,p.sku,p.brand,p.sourceBrand,...(p.tags || [])].join(' '));
       return terms.every(term => haystack.includes(term));
     });
     if (sort === 'az') list.sort((a,b) => a.name.localeCompare(b.name,'vi'));
@@ -67,5 +69,5 @@ window.PK_UTILS = (() => {
     return lines.join('\n');
   };
   const mailto = (email, subject, body) => `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  return {normalize,escape,quantity,cleanCart,filterProducts,paginateProducts,validateInquiry,composeInquiry,mailto};
+  return {normalize,escape,assetUrl,quantity,cleanCart,filterProducts,paginateProducts,validateInquiry,composeInquiry,mailto};
 })();

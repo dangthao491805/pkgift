@@ -1,0 +1,120 @@
+{
+  "retrievedAt": "2026-10-14",
+  "brands": {
+    "locknlock": {
+      "sourceRecords": 1002,
+      "includedRecords": 995,
+      "types": {
+        "binh-giu-nhiet": 64,
+        "ly-giu-nhiet": 8,
+        "binh-nuoc": 77,
+        "giftset": 2,
+        "hop-com": 44,
+        "noi-chao": 134,
+        "tui": 10,
+        "khan": 16,
+        "sinh-hoat": 101,
+        "cham-soc-ca-nhan": 20,
+        "dien-gia-dung": 68,
+        "bat-dia": 14,
+        "hop-thuc-pham": 191,
+        "am-sieu-toc": 11,
+        "bep-dien": 9,
+        "noi-chien": 19,
+        "dung-cu-bep": 124,
+        "ly-coc": 22,
+        "goi-chan": 14,
+        "noi-com-dien": 19,
+        "may-xay-ep": 24,
+        "may-say-toc": 4
+      },
+      "imageUrls": 1553
+    },
+    "elmich": {
+      "sourceRecords": 1021,
+      "includedRecords": 1011,
+      "types": {
+        "binh-giu-nhiet": 65,
+        "ly-giu-nhiet": 29,
+        "binh-nuoc": 30,
+        "giftset": 4,
+        "hop-com": 26,
+        "noi-chao": 279,
+        "tui": 1,
+        "khan": 3,
+        "cham-soc-ca-nhan": 15,
+        "dien-gia-dung": 90,
+        "dung-cu-bep": 164,
+        "bat-dia": 59,
+        "am-sieu-toc": 21,
+        "bep-dien": 23,
+        "noi-chien": 18,
+        "hop-thuc-pham": 23,
+        "ly-thuy-tinh": 2,
+        "goi-chan": 42,
+        "tra-ca-phe": 4,
+        "sinh-hoat": 19,
+        "ly-coc": 5,
+        "ly-su": 6,
+        "may-say-toc": 11,
+        "may-xay-ep": 49,
+        "noi-com-dien": 23
+      },
+      "imageUrls": 9714
+    },
+    "inochi": {
+      "sourceRecords": 535,
+      "includedRecords": 530,
+      "types": {
+        "binh-giu-nhiet": 24,
+        "ly-giu-nhiet": 6,
+        "binh-nuoc": 34,
+        "giftset": 45,
+        "hop-com": 6,
+        "noi-chao": 30,
+        "tui": 2,
+        "sinh-hoat": 115,
+        "cham-soc-ca-nhan": 9,
+        "bat-dia": 58,
+        "ly-coc": 15,
+        "hop-thuc-pham": 64,
+        "dung-cu-bep": 68,
+        "ly-thuy-tinh": 35,
+        "dien-gia-dung": 4,
+        "may-xay-ep": 7,
+        "noi-chien": 5,
+        "noi-com-dien": 2,
+        "am-sieu-toc": 1
+      },
+      "imageUrls": 3406
+    },
+    "tokyolife": {
+      "sourceRecords": 148,
+      "includedRecords": 147,
+      "types": {
+        "binh-giu-nhiet": 15,
+        "ly-giu-nhiet": 9,
+        "binh-nuoc": 6,
+        "balo": 31,
+        "tui": 33,
+        "khan": 10,
+        "hop-thuc-pham": 10,
+        "goi-chan": 7,
+        "goi-co": 6,
+        "vi": 8,
+        "du": 3,
+        "thu-bong": 9
+      },
+      "imageUrls": 1562
+    }
+  },
+  "includedRecords": 2683,
+  "excludedRecords": 23,
+  "sources": [
+    "https://elmich.vn/products.json?limit=250",
+    "https://inochi.vn/collections/all",
+    "https://www.locknlock.vn/vi-vn/home",
+    "https://tokyolife.vn/"
+  ],
+  "limitations": "Source references are not PK Gift stock guarantees. Some records represent color or size variants where the source did not expose a reliable common model. Gallery lists are loaded per brand when a model is opened."
+}
